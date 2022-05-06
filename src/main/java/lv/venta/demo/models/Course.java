@@ -1,9 +1,12 @@
 package lv.venta.demo.models;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -27,6 +30,7 @@ public class Course {
 	@Setter(value = AccessLevel.NONE)
 	@Column(name = "IdC")
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int idC;
 
 	@Column(name = "Title")
@@ -41,7 +45,7 @@ public class Course {
 
 	@OneToMany(mappedBy = "course")
 	@ToString.Exclude
-	private ArrayList<Grade> grades;
+	private Collection<Grade> grades;
 
 	public Course(String title, int creditPoints, Professor professor) {
 		this.title = title;

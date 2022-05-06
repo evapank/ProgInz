@@ -21,7 +21,7 @@ public class ProgInzSem22Application {
 		SpringApplication.run(ProgInzSem22Application.class, args);
 	}
 
-	@Bean
+	// @Bean
 	public CommandLineRunner runner(IProfessorRepo profRepo, IStudentRepo studRepo, ICourseRepo courseRepo,
 			IGradeRepo gradeRepo) {
 		return new CommandLineRunner() {
@@ -32,6 +32,7 @@ public class ProgInzSem22Application {
 				Professor prof2 = new Professor("Raita", "Rollande", "Dr.ing");
 				profRepo.save(prof1);
 				profRepo.save(prof2);
+
 				Student stud1 = new Student("Janis", "Berzins");
 				Student stud2 = new Student("Baiba", "Jauka");
 				studRepo.save(stud1);
@@ -44,8 +45,8 @@ public class ProgInzSem22Application {
 
 				gradeRepo.save(new Grade(10, stud1, course1));
 				gradeRepo.save(new Grade(3, stud2, course2));
-				gradeRepo.save(new Grade(5, stud1, course1));
-				gradeRepo.save(new Grade(7, stud2, course2));
+				gradeRepo.save(new Grade(5, stud1, course2));
+				gradeRepo.save(new Grade(7, stud2, course1));
 
 			}
 		};

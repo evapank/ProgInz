@@ -2,6 +2,8 @@ package lv.venta.demo.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -23,6 +25,7 @@ public class Professor {
 	@Setter(value = AccessLevel.NONE)
 	@Column(name = "IdProf")
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int idProf;
 
 	@Column(name = "Name")
