@@ -10,10 +10,10 @@ import lv.venta.demo.models.Student;
 
 public interface IGradeRepo extends CrudRepository<Grade, Integer> {
 	// tiks genereta no DATA JPA, ir svarigs funkcijas nosaukums
-	public abstract ArrayList<Grade> findByStudentId_St(int studentId);
+	public abstract ArrayList<Grade> findByStudentIdSt(int studentId);
 
 	// tiks genereta no DATA JPA, ir svarigs funkcijas nosaukums
-	public abstract ArrayList<Grade> findByCourseId_C(int courseId);
+	public abstract ArrayList<Grade> findByCourseIdC(int courseId);
 
 	// tiks genereta no DATA JPA, ir svarigs funkcijas nosaukums
 	public abstract ArrayList<Grade> findByValueLessThan(int i);

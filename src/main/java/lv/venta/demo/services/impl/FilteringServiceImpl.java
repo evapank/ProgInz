@@ -17,13 +17,13 @@ public class FilteringServiceImpl implements FilteringService {
 
 	@Override
 	public ArrayList<Grade> getAllGradesFromStudentByID(int studentId) {
-		ArrayList<Grade> result = gradeRepo.findByStudentId_St(studentId);
+		ArrayList<Grade> result = gradeRepo.findByStudentIdSt(studentId);
 		return result;
 	}
 
 	@Override
 	public ArrayList<Grade> getAllGradesFromCourseById(int courseId) {
-		ArrayList<Grade> result = gradeRepo.findByCourseId_C(courseId);
+		ArrayList<Grade> result = gradeRepo.findByCourseIdC(courseId);
 		return result;
 	}
 

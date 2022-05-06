@@ -59,6 +59,9 @@ public class ProgInzSem22Application {
 
 			}
 		};
+		//TODO izveidod servisa interfeisu ar 6 abstraktam funkcijam
+		//izveidot servisa implementacijas klasi (gradeRepo objekts)
+		//iegut datus katra no funkcijam
 	}
 
 }
