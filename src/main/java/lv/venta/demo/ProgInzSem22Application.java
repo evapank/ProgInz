@@ -24,7 +24,7 @@ public class ProgInzSem22Application {
 		SpringApplication.run(ProgInzSem22Application.class, args);
 	}
 
-	@Bean
+	//@Bean
 	public CommandLineRunner runner(IProfessorRepo profRepo, IStudentRepo studRepo, ICourseRepo courseRepo,
 			IGradeRepo gradeRepo) {
 		return new CommandLineRunner() {
