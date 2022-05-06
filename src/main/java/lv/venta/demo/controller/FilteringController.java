@@ -1,11 +1,14 @@
 package lv.venta.demo.controller;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import lv.venta.demo.models.Grade;
 import lv.venta.demo.services.FilteringService;
 
 @Controller
@@ -16,6 +19,8 @@ public class FilteringController {
 	@GetMapping("/grades/stud/{id}") // localhost:8080/grades/stud/3
 	public String getGradesByStudentId(Model model, @PathVariable(name = "id") int id) {
 		model.addAttribute("object", filtService.getAllGradesFromStudentByID(id));
+		
+		
 		return "grades-page"; // atvers grade-page.html
 	}
 
