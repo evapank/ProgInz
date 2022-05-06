@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -39,18 +41,21 @@ public class Course {
 	@Column(name = "CreditPoints")
 	private int creditPoints;
 
-	@OneToOne
-	@JoinColumn(name = "IdProf") // colonas nosaukums
-	private Professor professor;
+	@ManyToMany
+	@JoinTable(joinColumns = @JoinColumn(name = "IdC"), inverseJoinColumns = @JoinColumn(name = "IdProf"))
+	private Collection<Professor> professors = new ArrayList<>();
+	// @OneToOne
+	// @JoinColumn(name = "IdProf") // colonas nosaukums
+	// private Professor professor;
 
 	@OneToMany(mappedBy = "course")
 	@ToString.Exclude
 	private Collection<Grade> grades;
 
-	public Course(String title, int creditPoints, Professor professor) {
+	public Course(String title, int creditPoints, Collection<Professor> professors) {
 		this.title = title;
 		this.creditPoints = creditPoints;
-		this.professor = professor;
+		this.professors = professors;
 	}
 
 }

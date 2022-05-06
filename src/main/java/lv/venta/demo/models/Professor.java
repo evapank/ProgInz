@@ -1,10 +1,14 @@
 package lv.venta.demo.models;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -37,10 +41,12 @@ public class Professor {
 	@Column(name = "Degree")
 	private String degree;
 
+	@ManyToMany(mappedBy = "professors")
+	private Collection<Course> courses = new ArrayList<Course>();
 	// mappedBy norada uz mainigo preteja puse
-	@OneToOne(mappedBy = "professor")
-	@ToString.Exclude
-	private Course course;
+	// @OneToOne(mappedBy = "professor")
+	// @ToString.Exclude
+	// private Course course;
 
 	public Professor(String name, String surname, String degree) {
 		this.name = name;
@@ -48,4 +54,7 @@ public class Professor {
 		this.degree = degree;
 	}
 
+	public void addCourse(Course course) {
+		courses.add(course);
+	}
 }
